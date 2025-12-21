@@ -1,43 +1,41 @@
 # TapTrust Website V2.1
 
-A Vite + React build of the TapTrust marketing site. It showcases how TapTrust helps venues accept Apple Wallet Mobile IDs and traditional barcodes in the same streamlined flow.
-
-## Prerequisites
-- Node.js 18+ (bundled with npm)
-
-## Setup
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. If you pulled fresh changes, ensure you are on a feature branch before editing (per workflow guidelines).
-
-## Running the app
-- Development server with hot reload:
-  ```bash
-  npm run dev
-  ```
-  The site will be available at `http://localhost:5173` by default.
-
-- Production build preview:
-  ```bash
-  npm run build
-  npm run preview
-  ```
-
-## Testing / Checks
-- Run the production build to catch type and bundling issues:
-  ```bash
-  npm run build
-  ```
+TapTrust is a React + Vite single-page application for communicating how TapTrust simplifies age verification with Apple Wallet mobile IDs. The site uses client-side routing (React Router) with a GitHub Pages friendly fallback so deep links like `/privacy` and `/terms` continue to work when loaded directly.
 
 ## How it works
-- The site is a static React SPA styled with Tailwind utility classes.
-- Pages live in `src/pages`, while shared pieces (e.g., hero interactions) live in `src/components`.
-- New marketing elements such as the mobile ID adoption map and infographics are rendered directly in React—no external visualization libraries are required at runtime.
-- Assets from Figma are referenced with `figma:asset/...` imports that Vite resolves during the build.
+- **Frontend stack:** React 18 with Vite build tooling and Tailwind-style utility classes for layout and theming.
+- **Routing:** React Router drives top-level routes (`/`, `/features`, `/how-it-works`, `/support`, `/privacy`, `/terms`, `/age-suitability`) with a `Layout` wrapper for shared navigation and footer content.
+- **Build output:** `npm run build` emits production assets to `build/`, which are shipped to GitHub Pages via the included workflow.
+- **SPA fallback:** A lightweight `404.html` captures unknown paths on GitHub Pages, stores the original URL, and redirects to the app so the router can render the correct screen.
+- **SEO and discovery:** Canonical/meta tags, `robots.txt`, and `sitemap.xml` live in `public/` to encourage indexing and AI crawler access.
+
+## Prerequisites
+- Node.js 20+
+- npm 10+
+
+## Setup
+From the repo root:
+```bash
+cd "TapTrust Website V2.1"
+npm ci
+```
+
+## Local development
+```bash
+npm run dev
+```
+This starts Vite on http://localhost:3000 (see `vite.config.ts`) with hot reloading.
+
+## Tests and checks
+```bash
+npm run build
+```
+`npm run build` is the current production check; it validates TypeScript, bundles assets, and ensures there are no fatal lint errors during compilation.
+
+## Deployment
+GitHub Actions (`.github/workflows/deploy.yml`) builds the site from `TapTrust Website V2.1/` and publishes `build/` to GitHub Pages. The workflow runs on pushes to the `main` branch or via manual dispatch. The `public/CNAME` file preserves the custom domain `taptrust.app` in the deployed artifact.
 
 ## Operating tips
 - Keep content updates within the relevant page component to preserve layout structure.
 - When adding visuals, prefer inline SVG or existing icon libraries (Lucide) to maintain the minimalist aesthetic.
-- Always run `npm run build` before committing to ensure the bundle stays healthy.
+- If you add new routes, include them in `public/sitemap.xml` to keep search engines and AI crawlers aware of them.
