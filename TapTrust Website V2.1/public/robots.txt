@@ -1,0 +1,14 @@
+# Welcome bots and crawlers — we want you to see this site.
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://taptrust.app/sitemap.xml

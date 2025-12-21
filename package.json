@@ -1,0 +1,11 @@
+{
+  "name": "taptrust-support",
+  "private": true,
+  "scripts": {
+    "install:v2": "npm --prefix \"TapTrust Website V2.1\" install",
+    "postinstall": "npm run install:v2",
+    "dev": "npm --prefix \"TapTrust Website V2.1\" run dev",
+    "build": "npm --prefix \"TapTrust Website V2.1\" run build",
+    "preview": "npm --prefix \"TapTrust Website V2.1\" run preview"
+  }
+}

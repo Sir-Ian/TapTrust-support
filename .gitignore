@@ -1,1 +1,9 @@
 node_modules
+.DS_Store
+.vscode
+.astro
+dist
+TapTrust Website V2.1/build
+TapTrust Website V2.1/.vite
+TapTrust Website V2.1/dist
+TapTrust Website V2.1/node_modules
