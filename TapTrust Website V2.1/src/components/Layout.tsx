@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImage from 'figma:asset/7b231eacdf04e2d5bed4780cf5ceeaa7fb44ca7f.png';
+import logoImage from '../assets/7b231eacdf04e2d5bed4780cf5ceeaa7fb44ca7f.png';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = React.useState(false);

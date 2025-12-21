@@ -9,7 +9,10 @@
       name="description"
       content="TapTrust makes age verification simple, secure, and private using Apple Wallet mobile IDs."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#6AA5FF" />
+
+    <link rel="canonical" href="https://taptrust.app" />
 
     <link rel="icon" type="image/png" href="/taptrust-icon.png" />
     <link rel="apple-touch-icon" href="/taptrust-icon.png" />
@@ -30,6 +33,18 @@
       content="TapTrust makes age verification simple, secure, and private using Apple Wallet mobile IDs."
     />
     <meta name="twitter:image" content="https://taptrust.app/taptrust-icon.png" />
+
+    <script>
+      (function () {
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          const url = new URL(redirect);
+          const path = url.pathname + url.search + url.hash;
+          window.history.replaceState(null, '', path);
+        }
+      })();
+    </script>
   </head>
 
   <body>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Smartphone, Check, UserCheck, X } from 'lucide-react';
-import appScreenshot from 'figma:asset/2c800d57d25cd7ad57c6c559e0e4041b79aa5be1.png';
+import appScreenshot from '../assets/2c800d57d25cd7ad57c6c559e0e4041b79aa5be1.png';
 import { SayYesMoment } from '../components/SayYesMoment';
 
 // --- Hero Section ---
