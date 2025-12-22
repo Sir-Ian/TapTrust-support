@@ -22,7 +22,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
-               <img src={logoImage} alt="TapTrust Logo" className="h-8 w-8 object-contain brightness-0 invert" />
+               <img src={logoImage} alt="TapTrust Logo" className="h-8 w-8 object-contain" />
               <span className="text-xl font-semibold tracking-tight text-white">TapTrust</span>
             </Link>
             
@@ -117,7 +117,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div className="flex items-center gap-2">
-                    <img src={logoImage} alt="TapTrust Logo" className="h-6 w-6 object-contain brightness-0 invert opacity-80" />
+                    <img src={logoImage} alt="TapTrust Logo" className="h-6 w-6 object-contain" />
                    <span className="text-lg font-semibold text-white">TapTrust</span>
                 </div>
                 
