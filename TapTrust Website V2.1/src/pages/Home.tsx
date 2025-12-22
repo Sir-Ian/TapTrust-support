@@ -31,7 +31,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-xl leading-relaxed text-gray-400 mb-8 max-w-lg"
             >
-              TapTrust makes ID verification faster, clearer, and more confident than scanning physical licenses.
+              TapTrust turns Mobile ID checks into a single, confident decision
             </motion.p>
 
             <motion.div 
