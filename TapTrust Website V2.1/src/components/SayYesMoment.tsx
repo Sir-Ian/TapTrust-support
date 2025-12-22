@@ -8,7 +8,6 @@ export const SayYesMoment = () => {
         <figure className="mx-auto max-w-5xl">
           <figcaption className="text-center">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white">
-              “People expect them to work.”
             </p>
           </figcaption>
 
