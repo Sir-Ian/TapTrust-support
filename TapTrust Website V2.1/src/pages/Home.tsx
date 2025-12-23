@@ -1,8 +1,80 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Smartphone, Check, UserCheck, X } from 'lucide-react';
+import { ShieldCheck, Smartphone, Check, UserCheck, X, RefreshCw, ToggleLeft } from 'lucide-react';
 import appScreenshot from 'figma:asset/2c800d57d25cd7ad57c6c559e0e4041b79aa5be1.png';
 import { SayYesMoment } from '../components/SayYesMoment';
+
+const APPLE_WALLET_STATES = ["AZ", "CO", "GA", "MD"];
+const OTHER_MOBILE_ID_STATES = ["DE", "FL", "IA", "LA", "MS", "OK", "UT"];
+
+const TILE_SIZE = 40;
+const TILE_GAP = 6;
+
+const STATE_TILES: Record<string, { col: number; row: number }> = {
+  WA: { col: 2, row: 0 },
+  MT: { col: 3, row: 0 },
+  ND: { col: 4, row: 0 },
+  MN: { col: 5, row: 0 },
+  WI: { col: 6, row: 0 },
+  MI: { col: 7, row: 0 },
+  VT: { col: 8, row: 0 },
+  NH: { col: 9, row: 0 },
+  ME: { col: 10, row: 0 },
+
+  OR: { col: 1, row: 1 },
+  ID: { col: 2, row: 1 },
+  WY: { col: 3, row: 1 },
+  SD: { col: 4, row: 1 },
+  IA: { col: 5, row: 1 },
+  IL: { col: 6, row: 1 },
+  IN: { col: 7, row: 1 },
+  OH: { col: 8, row: 1 },
+  PA: { col: 9, row: 1 },
+  NY: { col: 10, row: 1 },
+  MA: { col: 11, row: 1 },
+
+  CA: { col: 0, row: 2 },
+  NV: { col: 1, row: 2 },
+  UT: { col: 2, row: 2 },
+  CO: { col: 3, row: 2 },
+  NE: { col: 4, row: 2 },
+  MO: { col: 5, row: 2 },
+  KY: { col: 6, row: 2 },
+  WV: { col: 7, row: 2 },
+  VA: { col: 8, row: 2 },
+  MD: { col: 9, row: 2 },
+  NJ: { col: 10, row: 2 },
+  CT: { col: 11, row: 2 },
+
+  AZ: { col: 1, row: 3 },
+  NM: { col: 2, row: 3 },
+  KS: { col: 3, row: 3 },
+  AR: { col: 4, row: 3 },
+  TN: { col: 5, row: 3 },
+  NC: { col: 6, row: 3 },
+  SC: { col: 7, row: 3 },
+  DC: { col: 9, row: 3 },
+  DE: { col: 10, row: 3 },
+  RI: { col: 11, row: 3 },
+
+  OK: { col: 2, row: 4 },
+  LA: { col: 3, row: 4 },
+  MS: { col: 4, row: 4 },
+  AL: { col: 5, row: 4 },
+  GA: { col: 6, row: 4 },
+
+  TX: { col: 2, row: 5 },
+  FL: { col: 11, row: 5 },
+
+  AK: { col: 0, row: 6 },
+  HI: { col: 2, row: 6 },
+};
+
+const tilePath = ({ col, row }: { col: number; row: number }) => {
+  const x = col * (TILE_SIZE + TILE_GAP);
+  const y = row * (TILE_SIZE + TILE_GAP);
+  return `M${x} ${y}h${TILE_SIZE}v${TILE_SIZE}h-${TILE_SIZE}Z`;
+};
 
 // --- Hero Section ---
 const Hero = () => {
@@ -78,6 +150,20 @@ const Hero = () => {
 
 // --- Market Reality Section (Replaces Psychological Security) ---
 const MarketReality = () => {
+   useEffect(() => {
+      APPLE_WALLET_STATES.forEach((code) => {
+         const node = document.getElementById(code);
+         if (!node) return;
+         node.classList.add('apple-supported');
+      });
+
+      OTHER_MOBILE_ID_STATES.forEach((code) => {
+         const node = document.getElementById(code);
+         if (!node) return;
+         node.classList.add('mobile-id-supported');
+      });
+   }, []);
+
    return (
       <section id="how-it-works" className="py-32 bg-[#050505] relative overflow-hidden">
          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -89,7 +175,44 @@ const MarketReality = () => {
                   People expect them to work. TapTrust lets you say "yes" instead of "we don't do that."
                </p>
             </div>
-            
+
+            <div className="bg-[#0b0b0b] border border-white/5 rounded-3xl p-8 lg:p-10 shadow-[0_0_50px_rgba(37,99,235,0.08)] max-w-6xl mx-auto mb-16">
+               <div className="overflow-hidden rounded-2xl bg-black/50 border border-white/5">
+                  <svg viewBox="0 0 560 330" role="img" aria-label="U.S. map showing mobile ID adoption" className="w-full h-auto">
+                     <style>{`
+                        .state { fill: #0f172a; stroke: rgba(255,255,255,0.08); stroke-width: 1; transition: fill 200ms ease, stroke 200ms ease; }
+                        .apple-supported { fill: #1d4ed8; stroke: #60a5fa; }
+                        .mobile-id-supported { fill: #0ea5e9; stroke: #67e8f9; }
+                     `}</style>
+                     <g transform="translate(20,10)">
+                        {Object.entries(STATE_TILES).map(([code, pos]) => (
+                           <path key={code} id={code} className="state" d={tilePath(pos)} />
+                        ))}
+                     </g>
+                  </svg>
+               </div>
+
+               <div className="mt-6 flex flex-col gap-4 text-gray-300 text-sm">
+                  <div className="flex items-center gap-4 flex-wrap">
+                     <div className="flex items-center gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#1d4ed8] border border-[#60a5fa]" />
+                        <span>Apple Wallet Mobile ID</span>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#0ea5e9] border border-[#67e8f9]" />
+                        <span>Other Mobile ID Programs</span>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#0f172a] border border-white/10" />
+                        <span>Not yet supported</span>
+                     </div>
+                  </div>
+               </div>
+               <p className="mt-4 text-gray-400 text-sm">
+                  Mobile IDs are already live in select states — and expanding fast.
+               </p>
+            </div>
+
             {/* Visuals illustrating "Old Way" vs "TapTrust Way" */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                <div className="bg-[#0f0f0f] p-8 rounded-3xl border border-white/5 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
@@ -134,7 +257,39 @@ const OneClearAnswer = () => {
               <p className="text-lg text-gray-400 leading-relaxed mb-8">
                  TapTrust removes the guesswork. There's no math to do, no holograms to hunt for, and no tiny text to read in a dark club.
               </p>
-              
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                 <div className="p-6 rounded-2xl bg-[#0b0b0b] border border-white/5 flex flex-col items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                       <Smartphone className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <h3 className="text-white font-semibold mb-1">All IDs, one flow</h3>
+                       <p className="text-gray-500 text-sm">Accept Mobile IDs and barcodes in the same streamlined interface.</p>
+                    </div>
+                 </div>
+
+                 <div className="p-6 rounded-2xl bg-[#0b0b0b] border border-white/5 flex flex-col items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                       <RefreshCw className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <h3 className="text-white font-semibold mb-1">Queue Mode ready</h3>
+                       <p className="text-gray-500 text-sm">Keeps verifications rolling back-to-back during rush periods.</p>
+                    </div>
+                 </div>
+
+                 <div className="p-6 rounded-2xl bg-[#0b0b0b] border border-white/5 flex flex-col items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                       <ToggleLeft className="w-5 h-5" />
+                    </div>
+                    <div>
+                       <h3 className="text-white font-semibold mb-1">Optional Match/No Match</h3>
+                       <p className="text-gray-500 text-sm">Enable confirmation when you want logs; turn it off when speed wins.</p>
+                    </div>
+                 </div>
+              </div>
+
               <ul className="space-y-6">
                  <li className="flex items-start gap-4">
                     <div className="mt-1 w-8 h-8 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400 shrink-0">
@@ -191,6 +346,32 @@ const OneClearAnswer = () => {
   );
 };
 
+const QuoteBlock = () => {
+   const quotes = [
+      "Say yes to Mobile IDs without retraining your staff.",
+      "If Apple supports it, TapTrust does too.",
+      "Legacy excuses out. Don't be the venue that turns away valid, government-issued digital IDs.",
+   ];
+
+   return (
+      <section className="py-24 bg-black border-t border-white/5">
+         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-10">Why venues are switching</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               {quotes.map((quote) => (
+                  <div
+                     key={quote}
+                     className="p-6 rounded-2xl bg-[#0b0b0b] border border-white/5 text-gray-200 leading-relaxed shadow-[0_0_30px_rgba(0,0,0,0.25)]"
+                  >
+                     “{quote}”
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
+   );
+};
+
 // --- Features Grid (Replaces old grid) ---
 const KeyFeatures = () => {
    return (
@@ -238,6 +419,7 @@ export const Home = () => {
       <Hero />
       <SayYesMoment />
       <MarketReality />
+      <QuoteBlock />
       <OneClearAnswer />
       <KeyFeatures />
       

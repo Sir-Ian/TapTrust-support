@@ -74,6 +74,12 @@ export const HowItWorks = () => {
                </div>
 
             </div>
+            <p className="mt-10 text-center text-gray-400 text-sm max-w-3xl mx-auto">
+               As soon as a guest is cleared, the system resets instantly for the next tap—built for Queue Mode throughput.
+            </p>
+            <p className="mt-3 text-center text-gray-400 text-sm max-w-3xl mx-auto">
+               The Match/No Match step is optional. Turn it on to log decisions, or off to move even faster.
+            </p>
          </div>
       </section>
 
@@ -164,6 +170,7 @@ export const HowItWorks = () => {
             <button className="h-14 px-10 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl">
                Get Started
             </button>
+            <p className="mt-4 text-gray-500 text-sm">Switch on demo mode to experience the full flow without onboarding.</p>
          </div>
       </section>
     </div>

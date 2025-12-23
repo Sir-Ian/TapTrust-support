@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Smartphone, Check, Zap, Lock, BarChart3 } from 'lucide-react';
+import { ShieldCheck, Smartphone, Check, Zap, Lock, BarChart3, RefreshCcw, ToggleLeft } from 'lucide-react';
 
 export const Features = () => {
   return (
@@ -12,7 +12,7 @@ export const Features = () => {
                <span className="text-blue-500">legacy excuses out.</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-               TapTrust bridges the gap between the new wave of digital IDs and the physical security needs of your venue.
+               TapTrust bridges the gap between the new wave of digital IDs and the physical security needs of your venue—and it accepts Mobile IDs and traditional barcodes in the same flow.
             </p>
          </div>
       </section>
@@ -47,6 +47,17 @@ export const Features = () => {
                {/* Card 3 */}
                <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
+                     <RefreshCcw className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Queue Mode</h3>
+                  <p className="text-gray-400 leading-relaxed">
+                     Keeps the reader live for nonstop, back-to-back verifications during rushes.
+                  </p>
+               </div>
+
+               {/* Card 4 */}
+               <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
                      <Lock className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Privacy by Design</h3>
@@ -55,7 +66,18 @@ export const Features = () => {
                   </p>
                </div>
 
-               {/* Card 4 */}
+               {/* Card 5 */}
+               <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
+                     <ToggleLeft className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Optional Confirmation</h3>
+                  <p className="text-gray-400 leading-relaxed">
+                     Venues can enable or disable the Match/No Match button to suit their workflow.
+                  </p>
+               </div>
+
+               {/* Card 6 */}
                <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
                      <Zap className="w-6 h-6" />
@@ -66,7 +88,7 @@ export const Features = () => {
                   </p>
                </div>
 
-               {/* Card 5 */}
+               {/* Card 7 */}
                <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
                      <BarChart3 className="w-6 h-6" />
@@ -77,7 +99,7 @@ export const Features = () => {
                   </p>
                </div>
 
-               {/* Card 6 */}
+               {/* Card 8 */}
                <div className="p-8 rounded-3xl bg-[#111] border border-white/5 hover:border-blue-500/30 transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-blue-900/20 flex items-center justify-center mb-6 text-blue-400">
                      <ShieldCheck className="w-6 h-6" />
