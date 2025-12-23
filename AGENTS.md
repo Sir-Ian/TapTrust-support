@@ -1,13 +1,35 @@
-MANDATORY WORKFLOW REQUIREMENTS
 
-Create a new Git branch before making any changes
+## Purpose
+This repository uses AI agents to propose and implement code changes.
+Agents are NOT allowed to commit, push, or merge code.
 
-Branch name format:
-feature/say-yes-moment-hero
+## Allowed Actions
+- Create and modify files
+- Refactor existing code
+- Add new features
+- Update documentation
+- Leave clear, human-readable change descriptions
 
-Do not commit directly to main
+## Forbidden Actions
+- DO NOT run `git commit`
+- DO NOT run `git push`
+- DO NOT create or merge pull requests
+- DO NOT modify git history
 
-Make changes locally, verify visually, then commit with a clear message:
+## Workflow Rules
+- All work must remain uncommitted in the working tree
+- Each feature should be implemented as a cohesive set of file changes
+- Changes should be logically grouped but not committed
+- Leave commit-ready messaging in comments or summaries
 
-Example commit message:
-Add “Say Yes” interaction moment graphic to homepage hero
+## Change Reporting
+After completing work, the agent must output:
+1. A summary of changes
+2. A suggested commit message
+3. A list of modified/added files
+
+## Ownership
+Human developer is responsible for:
+- Reviewing changes
+- Creating commits
+- Managing branches and pull requests
