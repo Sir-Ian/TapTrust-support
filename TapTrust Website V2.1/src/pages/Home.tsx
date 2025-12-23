@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Smartphone, Check, UserCheck, X, RefreshCw, ToggleLeft } from 'lucide-react';
+import { ShieldCheck, Smartphone, Check, X, RefreshCw, ToggleLeft } from 'lucide-react';
 import appScreenshot from 'figma:asset/2c800d57d25cd7ad57c6c559e0e4041b79aa5be1.png';
 import { SayYesMoment } from '../components/SayYesMoment';
 
@@ -440,29 +440,6 @@ const MarketReality = () => {
                </p>
             </div>
 
-            {/* Visuals illustrating "Old Way" vs "TapTrust Way" */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-               <div className="bg-[#0f0f0f] p-8 rounded-3xl border border-white/5 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                  <div className="text-2xl font-bold text-white mb-4">The Old Way</div>
-                  <p className="text-gray-400 mb-8 h-12">"Sorry, I need to see the physical card."</p>
-                  <div className="flex items-center gap-4 text-gray-500 bg-black/50 p-4 rounded-xl">
-                     <X className="w-6 h-6" />
-                     <span>Customer disappointment</span>
-                  </div>
-               </div>
-
-               <div className="bg-[#111] p-8 rounded-3xl border border-blue-500/20 shadow-[0_0_40px_rgba(37,99,235,0.1)] relative">
-                  <div className="absolute -top-3 -right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                     NEW STANDARD
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-4">TapTrust</div>
-                  <p className="text-gray-400 mb-8 h-12">"Sure, just tap right here."</p>
-                  <div className="flex items-center gap-4 text-white bg-blue-900/20 p-4 rounded-xl border border-blue-500/20">
-                     <Check className="w-6 h-6 text-blue-500" />
-                     <span>Seamless experience</span>
-                  </div>
-               </div>
-            </div>
          </div>
       </section>
    )
@@ -573,67 +550,27 @@ const OneClearAnswer = () => {
   );
 };
 
-const QuoteBlock = () => {
+// --- Features Grid (Replaces old grid) ---
+const KeyFeatures = () => {
    const quotes = [
-      "Say yes to Mobile IDs without retraining your staff.",
-      "If Apple supports it, TapTrust does too.",
+      'Say yes to Mobile IDs without retraining your staff.',
+      'If Apple supports it, TapTrust does too.',
       "Legacy excuses out. Don't be the venue that turns away valid, government-issued digital IDs.",
    ];
 
    return (
-      <section className="py-24 bg-black border-t border-white/5">
+      <section className="py-24 bg-[#050505] border-t border-white/5">
          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-10">Why venues are switching</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {quotes.map((quote) => (
                   <div
                      key={quote}
-                     className="p-6 rounded-2xl bg-[#0b0b0b] border border-white/5 text-gray-200 leading-relaxed shadow-[0_0_30px_rgba(0,0,0,0.25)]"
+                     className="p-8 rounded-3xl bg-[#0A0A0A] border border-white/5 text-white leading-relaxed shadow-[0_0_30px_rgba(0,0,0,0.25)]"
                   >
                      “{quote}”
                   </div>
                ))}
-            </div>
-         </div>
-      </section>
-   );
-};
-
-// --- Features Grid (Replaces old grid) ---
-const KeyFeatures = () => {
-   return (
-      <section className="py-32 bg-[#050505] border-t border-white/5">
-         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               <div className="p-8 rounded-3xl bg-[#0A0A0A] border border-white/5 hover:border-blue-500/30 transition-colors group">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
-                     <UserCheck className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">No Retraining Needed</h3>
-                  <p className="text-gray-400">
-                     "Say yes to Mobile IDs without retraining your staff." The app is intuitive enough that anyone can use it instantly.
-                  </p>
-               </div>
-
-               <div className="p-8 rounded-3xl bg-[#0A0A0A] border border-white/5 hover:border-blue-500/30 transition-colors group">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
-                     <ShieldCheck className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Apple Supported</h3>
-                  <p className="text-gray-400">
-                     "If Apple supports it, TapTrust does too." We support every state and jurisdiction currently in Apple Wallet.
-                  </p>
-               </div>
-
-               <div className="p-8 rounded-3xl bg-[#0A0A0A] border border-white/5 hover:border-blue-500/30 transition-colors group">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
-                     <Smartphone className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Modern IDs In</h3>
-                  <p className="text-gray-400">
-                     Legacy excuses out. Don't be the venue that turns away valid, government-issued digital IDs.
-                  </p>
-               </div>
             </div>
          </div>
       </section>
@@ -646,7 +583,6 @@ export const Home = () => {
       <Hero />
       <SayYesMoment />
       <MarketReality />
-      <QuoteBlock />
       <OneClearAnswer />
       <KeyFeatures />
       
