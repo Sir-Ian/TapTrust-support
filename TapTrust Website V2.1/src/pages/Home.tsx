@@ -47,7 +47,7 @@ const Hero = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl mb-6 leading-[1.1]"
             >
-              Verify Apple Wallet Mobile IDs with <span className="text-blue-500">one tap</span>
+              Check Mobile IDs in <span className="text-blue-500">one tap</span>
             </motion.h1>
 
             <motion.p 
