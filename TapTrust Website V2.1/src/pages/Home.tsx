@@ -445,7 +445,7 @@ const MarketReality = () => {
    )
 }
 
-// --- One Clear Answer (Replaces Intentional Verification) ---
+// --- One Clear Answer (Replaces Intentional ID-check framing) ---
 const OneClearAnswer = () => {
   return (
     <section className="py-32 bg-black relative overflow-hidden">
@@ -479,7 +479,7 @@ const OneClearAnswer = () => {
                     </div>
                     <div>
                        <h3 className="text-white font-semibold mb-1">Queue Mode ready</h3>
-                       <p className="text-gray-500 text-sm">Keeps verifications rolling back-to-back during rush periods.</p>
+                       <p className="text-gray-500 text-sm">Keeps checks rolling back-to-back during rush periods.</p>
                     </div>
                  </div>
 
@@ -510,7 +510,7 @@ const OneClearAnswer = () => {
                     </div>
                     <div>
                        <h3 className="text-white font-semibold">Privacy Preserved</h3>
-                       <p className="text-gray-500 text-sm mt-1">You verify the age, not the address. Less liability for you.</p>
+                       <p className="text-gray-500 text-sm mt-1">You confirm age eligibility, not the address. Less liability for you.</p>
                     </div>
                  </li>
               </ul>
@@ -521,7 +521,7 @@ const OneClearAnswer = () => {
               <div className="bg-[#111] rounded-3xl border border-gray-800 p-8 md:p-10 relative shadow-2xl max-w-md w-full">
                   {/* Simulated Interface Card */}
                   <div className="flex flex-col items-center text-center">
-                     <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-8">Verification Result</p>
+                     <p className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-8">Check Result</p>
                      
                      {/* The "Choice" UI */}
                      <div className="w-full aspect-square bg-black rounded-2xl border border-gray-800 mb-8 flex flex-col items-center justify-center relative overflow-hidden group">

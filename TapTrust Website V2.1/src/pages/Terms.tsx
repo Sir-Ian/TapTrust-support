@@ -18,21 +18,21 @@ export const Terms = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">2. Purpose</h2>
             <p className="leading-relaxed">
-              TapTrust provides age verification tools using Apple Wallet mobile IDs and physical ID barcode scanning. TapTrust does not guarantee legal compliance in all jurisdictions. It is your responsibility to ensure the app is used in accordance with applicable laws and regulations.
+              TapTrust provides age eligibility check tools using Apple Wallet mobile IDs and physical ID barcode scanning. TapTrust does not guarantee legal compliance in all jurisdictions. It is your responsibility to ensure the app is used in accordance with applicable laws and regulations.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">3. No Data Storage</h2>
             <p className="leading-relaxed">
-              TapTrust does not collect or store personal data from IDs. Operators using the app may manually record verification outcomes, but no personal data is saved by TapTrust itself.
+              TapTrust does not collect or store personal data from IDs. Operators using the app may manually record check outcomes, but no personal data is saved by TapTrust itself.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">4. Disclaimer</h2>
             <p className="leading-relaxed">
-              TapTrust is provided “as is” without warranties of any kind. We are not responsible for misuse of the app, failure to verify IDs, or compliance failures by third-party businesses.
+              TapTrust is provided “as is” without warranties of any kind. We are not responsible for misuse of the app, failure to check IDs, or compliance failures by third-party businesses.
             </p>
           </section>
 

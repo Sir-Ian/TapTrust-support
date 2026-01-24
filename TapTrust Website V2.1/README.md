@@ -1,6 +1,6 @@
 # TapTrust Website V2.1
 
-TapTrust is a React + Vite single-page application for communicating how TapTrust simplifies age verification with Apple Wallet mobile IDs. The site uses client-side routing (React Router) with a GitHub Pages friendly fallback so deep links like `/privacy` and `/terms` continue to work when loaded directly.
+TapTrust is a React + Vite single-page application for communicating how TapTrust simplifies mobile ID checks with Apple Wallet mobile IDs. The site uses client-side routing (React Router) with a GitHub Pages friendly fallback so deep links like `/privacy` and `/terms` continue to work when loaded directly.
 
 ## How it works
 - **Frontend stack:** React 18 with Vite build tooling and Tailwind-style utility classes for layout and theming.

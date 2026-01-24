@@ -69,7 +69,7 @@ export const HowItWorks = () => {
                   </div>
                   <h3 className="text-xl font-bold mb-3">You Decide</h3>
                   <p className="text-gray-400 text-sm leading-relaxed max-w-[200px]">
-                     Verifier taps "Match" or "No Match". The decision is logged, and the queue keeps moving.
+                     Staff taps "Match" or "No Match". The decision is logged, and the queue keeps moving.
                   </p>
                </div>
 
@@ -141,7 +141,7 @@ export const HowItWorks = () => {
                      <div className="flex justify-end">
                         <div className="bg-blue-900/20 border border-blue-500/20 rounded-2xl rounded-tr-none py-3 px-5 text-sm text-blue-200">
                            <span className="font-bold text-white block mb-1">Status: OK</span>
-                           Age Verified. Photo Ready.
+                           Age Check Complete. Photo Ready.
                         </div>
                      </div>
                      <div className="flex justify-start">

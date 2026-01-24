@@ -12,13 +12,13 @@ export const AgeSuitability = () => {
                 <span className="text-3xl font-bold text-white">18+</span>
              </div>
             <p className="leading-relaxed text-lg text-gray-400">
-              TapTrust does not contain explicit content, imagery, or language. However, because the app’s purpose is to verify identification in contexts that include age-restricted services such as alcohol sales, we have set the suitability rating to 18+.
+              TapTrust does not contain explicit content, imagery, or language. However, because the app’s purpose is to check IDs in contexts that include age-restricted services such as alcohol sales, we have set the suitability rating to 18+.
             </p>
           </section>
 
           <section>
             <p className="leading-relaxed text-lg text-gray-400">
-              We chose the higher threshold to reflect the nature of ID verification and to align with best practices for apps connected to regulated activities. This ensures clear expectations for both businesses and users.
+              We chose the higher threshold to reflect the nature of ID checks and to align with best practices for apps connected to regulated activities. This ensures clear expectations for both businesses and users.
             </p>
           </section>
 

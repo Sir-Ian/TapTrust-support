@@ -29,7 +29,7 @@ export const Features = () => {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">One Device. One Tap.</h3>
                   <p className="text-gray-400 leading-relaxed">
-                     Consolidate your verification tools. No expensive proprietary scanners needed—just an iPhone.
+                     Consolidate your ID-check tools. No expensive proprietary scanners needed—just an iPhone.
                   </p>
                </div>
 
@@ -51,7 +51,7 @@ export const Features = () => {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Queue Mode</h3>
                   <p className="text-gray-400 leading-relaxed">
-                     Keeps the reader live for nonstop, back-to-back verifications during rushes.
+                     Keeps the reader live for nonstop, back-to-back ID checks during rushes.
                   </p>
                </div>
 
