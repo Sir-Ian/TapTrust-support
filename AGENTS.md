@@ -1,7 +1,7 @@
 
 ## Purpose
 This repository uses AI agents to propose and implement code changes.
-Agents are NOT allowed to commit, push, or merge code.
+Agents may commit, push, and merge code when explicitly instructed by the human developer.
 
 ## Allowed Actions
 - Create and modify files
@@ -12,7 +12,7 @@ Agents are NOT allowed to commit, push, or merge code.
 
 
 ## Workflow Rules
-- All work must remain uncommitted in the working tree
+- Work may remain uncommitted in the working tree unless the human developer explicitly requests a commit, push, merge, or pull request.
 - Each feature should be implemented as a cohesive set of file changes
 - Changes should be logically grouped but not committed
 - Leave commit-ready messaging in comments or summaries
@@ -26,5 +26,4 @@ After completing work, the agent must output:
 ## Ownership
 Human developer is responsible for:
 - Reviewing changes
-- Creating commits
-- Managing branches and pull requests
+- Approving commits, branch updates, merges, and pull requests

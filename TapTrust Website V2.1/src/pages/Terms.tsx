@@ -18,7 +18,7 @@ export const Terms = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">2. Purpose</h2>
             <p className="leading-relaxed">
-              TapTrust provides age eligibility check tools using Apple Wallet mobile IDs and physical ID barcode scanning. TapTrust does not guarantee legal compliance in all jurisdictions. It is your responsibility to ensure the app is used in accordance with applicable laws and regulations.
+              TapTrust provides age eligibility check tools using supported mobile IDs, Apple Passport Verified IDs, and Apple Wallet Mobile IDs where available. Credential availability varies by state, issuer, device, and supported Apple verification flows. TapTrust does not guarantee legal compliance in all jurisdictions. It is your responsibility to ensure the app is used in accordance with applicable laws, venue policies, and regulations.
             </p>
           </section>
 

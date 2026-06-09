@@ -1,7 +1,9 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImage from '../assets/7b231eacdf04e2d5bed4780cf5ceeaa7fb44ca7f.png';
+import { analyticsEvents, downloadLinks } from '../lib/marketing';
+
+const logoImage = '/taptrust-icon-v3.png';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -12,7 +14,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   const links = [
     { name: 'Home', href: '/' },
     { name: 'Features', href: '/features' },
-    { name: 'How It Works', href: '/how-it-works' }, 
+    { name: 'How It Works', href: '/how-it-works' },
+    { name: 'FAQ', href: '/faq' },
     { name: 'Support', href: '/support' },
   ];
 
@@ -52,12 +55,13 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </div>
 
             <div className="hidden md:block">
-              <Link
-                to="/support"
+              <a
+                href={downloadLinks.default}
+                data-analytics-event={analyticsEvents.appStoreCta}
                 className="rounded-full bg-blue-500 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-400 active:scale-95 shadow-[0_0_20px_rgba(59,130,246,0.5)]"
               >
-                Get Started
-              </Link>
+                Download TapTrust
+              </a>
             </div>
 
             <div className="md:hidden">
@@ -97,13 +101,14 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </Link>
                 );
               })}
-               <Link
-                  to="/support"
+               <a
+                  href={downloadLinks.default}
+                  data-analytics-event={analyticsEvents.appStoreCta}
                   className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-blue-400 hover:bg-blue-500/10"
                   onClick={() => setIsOpen(false)}
                 >
-                  Get Started
-                </Link>
+                  Download TapTrust
+                </a>
             </div>
           </div>
         )}
@@ -124,6 +129,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-500">
                    <Link to="/" className="hover:text-white transition-colors">Home</Link>
                    <Link to="/features" className="hover:text-white transition-colors">Features</Link>
+                   <Link to="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
+                   <Link to="/faq" className="hover:text-white transition-colors">FAQ</Link>
                    <Link to="/support" className="hover:text-white transition-colors">Support</Link>
                 </div>
             </div>

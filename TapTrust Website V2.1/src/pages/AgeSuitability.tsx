@@ -9,21 +9,25 @@ export const AgeSuitability = () => {
         <div className="space-y-8">
           <section>
              <div className="bg-[#111] p-6 rounded-2xl border border-white/5 inline-block mb-8">
-                <span className="text-3xl font-bold text-white">18+</span>
+                <span className="text-3xl font-bold text-white">3+</span>
              </div>
             <p className="leading-relaxed text-lg text-gray-400">
-              TapTrust does not contain explicit content, imagery, or language. However, because the app’s purpose is to check IDs in contexts that include age-restricted services such as alcohol sales, we have set the suitability rating to 18+.
+              TapTrust is set to 3+. The app does not contain explicit content,
+              mature imagery, profanity, gambling, social features, or
+              user-generated content.
             </p>
           </section>
 
           <section>
             <p className="leading-relaxed text-lg text-gray-400">
-              We chose the higher threshold to reflect the nature of ID checks and to align with best practices for apps connected to regulated activities. This ensures clear expectations for both businesses and users.
+              TapTrust is a privacy-forward utility for supported credential
+              checks. Businesses may use it in regulated settings, but the app
+              itself is a simple tool and does not include mature content.
             </p>
           </section>
 
           <section className="pt-8 border-t border-white/10 text-sm text-gray-600">
-            <p>© 2025 Cognos Solution LLC. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Cognos Solution LLC. All rights reserved.</p>
           </section>
         </div>
       </div>

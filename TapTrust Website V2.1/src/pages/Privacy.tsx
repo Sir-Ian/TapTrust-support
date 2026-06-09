@@ -11,7 +11,7 @@ export const Privacy = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">Overview</h2>
             <p className="leading-relaxed">
-              TapTrust is designed with privacy first. Our app supports staff visual confirmation of age eligibility using Apple’s Display Only technology and optional barcode scanning. We do not collect, store, or share personal information.
+              TapTrust is designed with privacy first. Our app supports staff visual confirmation of age eligibility using supported mobile ID verification flows, Apple Passport Verified IDs, and Apple Wallet Mobile IDs where available. We do not collect, store, or share personal information.
             </p>
           </section>
 
@@ -27,14 +27,14 @@ export const Privacy = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">How the ID check works</h2>
             <p className="leading-relaxed">
-              When a customer presents a mobile ID in Apple Wallet, the ID is displayed only on their own device. The operator visually confirms age eligibility (21+) without any data being transferred. When scanning a physical driver’s license, only the barcode is read locally and no data leaves the device.
+              When a customer presents a supported digital credential, TapTrust is designed to show only the information needed for the age-check workflow. The operator visually confirms age eligibility and whether the guest matches the credential photo or information supported by the verification flow.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">Third-Party Services</h2>
             <p className="leading-relaxed">
-              TapTrust relies on Apple’s iOS APIs, including Wallet and Display Only. Apple may collect limited diagnostic data per their own policies. Please review Apple’s privacy policy for more details.
+              TapTrust relies on Apple’s iOS APIs and supported verifier flows where available. Apple or credential issuers may collect limited diagnostic data per their own policies. Please review Apple’s privacy policy and applicable issuer policies for more details.
             </p>
           </section>
 
