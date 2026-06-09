@@ -10,11 +10,6 @@ Agents are NOT allowed to commit, push, or merge code.
 - Update documentation
 - Leave clear, human-readable change descriptions
 
-## Forbidden Actions
-- DO NOT run `git commit`
-- DO NOT run `git push`
-- DO NOT create or merge pull requests
-- DO NOT modify git history
 
 ## Workflow Rules
 - All work must remain uncommitted in the working tree
