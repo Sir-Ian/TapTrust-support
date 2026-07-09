@@ -1,149 +1,99 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import type { ReactNode } from 'react';
 import {
-  BadgeCheck,
-  Check,
-  Gauge,
-  Repeat,
+  ArrowDown,
+  ArrowUpRight,
+  ChevronRight,
+  ScanLine,
+  ShieldCheck,
   Smartphone,
 } from 'lucide-react';
 import {
   FREE_CHECK_COUNT,
-  HOW_IT_WORKS_URL,
   analyticsEvents,
   downloadLinks,
 } from '../lib/marketing';
+import '../styles/marketing.css';
 
-const appScreenshot = '/taptrust-home-screen-iphone-17-pro.png';
+const productScreens = {
+  start: '/product-screens/taptrust-start-age-check.png',
+  result: '/product-screens/taptrust-over-21-result.png',
+  complete: '/product-screens/taptrust-check-complete.png',
+} as const;
 
-const PrimaryCta = ({ children, href, eventName }: {
-  children: React.ReactNode;
+type CtaProps = {
+  children: ReactNode;
   href: string;
   eventName: string;
-}) => (
+  variant?: 'primary' | 'secondary' | 'text';
+};
+
+const Cta = ({ children, href, eventName, variant = 'primary' }: CtaProps) => (
   <a
     href={href}
     data-analytics-event={eventName}
-    className="premium-cta inline-flex min-h-12 items-center justify-center rounded-lg bg-blue-500 px-6 py-3 font-semibold text-white shadow-[0_0_30px_rgba(59,130,246,0.35)] transition hover:bg-blue-400 active:scale-95"
+    className={`marketing-cta marketing-cta--${variant}`}
   >
     {children}
   </a>
 );
 
-const SecondaryCta = ({ children, href, eventName }: {
-  children: React.ReactNode;
-  href: string;
-  eventName: string;
-}) => (
-  <a
-    href={href}
-    data-analytics-event={eventName}
-    className="premium-secondary-cta inline-flex min-h-12 items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-blue-300/70 hover:bg-white/5"
-  >
-    {children}
-  </a>
-);
+type ProductScreenProps = {
+  src: string;
+  alt: string;
+  className?: string;
+  loading?: 'eager' | 'lazy';
+};
 
-const SectionLabel = ({ children }: { children: React.ReactNode }) => (
-  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">
-    {children}
-  </p>
+const ProductScreen = ({ src, alt, className = '', loading = 'lazy' }: ProductScreenProps) => (
+  <div className={`marketing-product-screen ${className}`}>
+    <img src={src} alt={alt} loading={loading} />
+  </div>
 );
 
 const Hero = () => (
-  <section className="relative overflow-hidden bg-black py-20 sm:py-24 lg:min-h-[86vh] lg:py-28">
-    <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[130px]" />
-
-    <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20 lg:px-8">
-      <div className="max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-6 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-gray-200"
-        >
-          <Smartphone className="h-4 w-4 text-blue-300" />
-          Built for bars, venues, events, and door staff
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-6 text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
-        >
-          Accept mobile IDs with the{' '}
-          <span className="text-blue-400">iPhone you already have.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-          className="mb-4 max-w-2xl text-xl leading-relaxed text-gray-300"
-        >
-          TapTrust helps bars, venues, and door staff verify age using supported
-          state-issued mobile IDs and Apple Passport Verified IDs. No scanner required.
-        </motion.p>
-
-        <p className="mb-8 text-lg font-semibold text-blue-200">
-          Start with {FREE_CHECK_COUNT} free checks.
+  <section className="marketing-hero">
+    <div className="marketing-container marketing-hero__inner">
+      <div className="marketing-hero__copy">
+        <h1>Verify a guest’s age with the iPhone you already have.</h1>
+        <p>
+          TapTrust gives door staff a clear age result and photo-match workflow for supported mobile IDs. No scanner. No stored ID data.
         </p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          className="flex flex-col gap-3 sm:flex-row"
-        >
-          <PrimaryCta href={downloadLinks.website_hero} eventName={analyticsEvents.appStoreCta}>
-            Download TapTrust
-          </PrimaryCta>
-          <SecondaryCta href={HOW_IT_WORKS_URL} eventName={analyticsEvents.howItWorks}>
-            See how it works
-          </SecondaryCta>
-        </motion.div>
+        <div className="marketing-hero__actions">
+          <Cta href={downloadLinks.website_hero} eventName={analyticsEvents.appStoreCta}>
+            Try {FREE_CHECK_COUNT} free checks <ArrowUpRight aria-hidden="true" />
+          </Cta>
+          <Cta href="#how-it-works" eventName={analyticsEvents.howItWorks} variant="secondary">
+            See the 30-second flow <ArrowDown aria-hidden="true" />
+          </Cta>
+        </div>
+        <span className="marketing-hero__proof">Available on the App Store · Built for iPhone</span>
       </div>
 
-      <div className="flex justify-center lg:justify-end">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative"
-        >
-          <div className="relative aspect-[9/19.5] w-[280px] overflow-hidden rounded-[2.8rem] border-[8px] border-[#1a1a1a] bg-black shadow-2xl sm:w-[330px]">
-            <img
-              src={appScreenshot}
-              alt="TapTrust app ready for mobile ID age verification"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent" />
-          </div>
-          <div className="absolute inset-8 -z-10 rounded-full bg-blue-500/25 blur-3xl" />
-        </motion.div>
+      <div className="marketing-hero__media">
+        <ProductScreen
+          src={productScreens.start}
+          alt="TapTrust app inviting staff to start an age check"
+          loading="eager"
+        />
       </div>
     </div>
   </section>
 );
 
-const ValueStrip = () => {
+const ProofRail = () => {
   const points = [
-    { icon: Smartphone, text: 'No new hardware' },
-    { icon: BadgeCheck, text: 'Passport Verified + supported mobile IDs' },
-    { icon: Gauge, text: 'Fast Mode for busy lines' },
-    { icon: Check, text: `${FREE_CHECK_COUNT} free checks` },
+    { icon: ScanLine, text: 'No scanner hardware' },
+    { icon: ShieldCheck, text: 'No ID data stored' },
+    { icon: Smartphone, text: 'Built for iPhone' },
   ];
 
   return (
-    <section className="border-y border-white/10 bg-[#050505]">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-white/10 px-4 sm:px-6 md:grid-cols-4 md:divide-x md:divide-y-0 lg:px-8">
+    <section className="marketing-proof-rail">
+      <div className="marketing-container marketing-proof-rail__inner">
         {points.map(({ icon: Icon, text }) => (
-          <div key={text} className="value-strip-item flex min-h-28 items-center gap-4 py-6 md:px-5">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300">
-              <Icon className="h-5 w-5" />
-            </div>
-            <p className="text-sm font-medium leading-relaxed text-gray-200">{text}</p>
+          <div key={text} className="marketing-proof-rail__item">
+            <Icon aria-hidden="true" />
+            <span>{text}</span>
           </div>
         ))}
       </div>
@@ -151,57 +101,108 @@ const ValueStrip = () => {
   );
 };
 
-const FreeTrial = () => (
-  <section
-    id="download-taptrust"
-    data-analytics-event={analyticsEvents.pricingTrialView}
-    className="bg-[#050505] py-24"
-  >
-    <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
-      <div>
-        <SectionLabel>Free Trial</SectionLabel>
-        <h2 className="mb-5 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Try TapTrust before changing your workflow.
-        </h2>
-        <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-400">
-          Download TapTrust and start with {FREE_CHECK_COUNT} free checks. Use it when a
-          guest presents a supported mobile ID or Passport Verified ID, then decide if it
-          belongs in your door workflow.
-        </p>
-        <PrimaryCta href={downloadLinks.website_pricing} eventName={analyticsEvents.freeTrialCta}>
-          Start Free
-        </PrimaryCta>
-      </div>
+const Flow = () => {
+  const steps = [
+    'Guest presents a supported digital ID.',
+    'TapTrust returns a clear age result.',
+    'Staff make a quick visual match.',
+  ];
 
-      <div className="rounded-lg border border-white/10 bg-black p-6">
-        <div className="flex items-center gap-4">
-          <Repeat className="h-8 w-8 text-blue-300" />
-          <div>
-            <h3 className="text-xl font-semibold text-white">{FREE_CHECK_COUNT} free checks</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-400">
-              Paid pricing is not shown here until the exact App Store pricing is confirmed.
-            </p>
-          </div>
+  return (
+    <section id="how-it-works" className="marketing-flow">
+      <div className="marketing-container marketing-flow__inner">
+        <div className="marketing-flow__copy">
+          <h2>The answer your staff needs, in seconds.</h2>
+          <p>
+            A guest presents a supported digital ID. TapTrust shows the age result, then gives staff a clear photo-match step.
+          </p>
+          <ol className="marketing-flow__steps">
+            {steps.map((step, index) => (
+              <li key={step}>
+                <span>0{index + 1}</span>
+                <p>{step}</p>
+              </li>
+            ))}
+          </ol>
+          <small>Works with supported IDs in Apple Wallet. Availability varies by issuer and device.</small>
+        </div>
+
+        <div className="marketing-flow__screens">
+          <figure>
+            <ProductScreen src={productScreens.result} alt="TapTrust displaying an Over 21 age result" />
+            <figcaption>A clear age result.</figcaption>
+          </figure>
+          <figure>
+            <ProductScreen src={productScreens.complete} alt="TapTrust confirming that an age check is complete" />
+            <figcaption>Ready for the next guest.</figcaption>
+          </figure>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
+const DoorRhythm = () => {
+  const points = [
+    {
+      number: '01',
+      title: 'Use the iPhone already at the door',
+      body: 'No dedicated scanner or new hardware rollout is required.',
+    },
+    {
+      number: '02',
+      title: 'Choose the right age threshold',
+      body: 'Support 18+, 21+, or 65+ workflows when your team needs them.',
+    },
+    {
+      number: '03',
+      title: 'Keep the line moving',
+      body: 'Fast Mode helps your staff reset quickly for the next check.',
+    },
+  ];
+
+  return (
+    <section className="marketing-rhythm">
+      <div className="marketing-container">
+        <div className="marketing-rhythm__copy">
+          <h2>Built for the rhythm at the door.</h2>
+          <p>
+            TapTrust turns a newer credential type into the familiar decision your team has to make: is this guest eligible, and does the person match?
+          </p>
+        </div>
+        <div className="marketing-rhythm__points">
+          {points.map((point) => (
+            <article key={point.number}>
+              <span>{point.number}</span>
+              <h3>{point.title}</h3>
+              <p>{point.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const FinalCta = () => (
-  <section className="relative overflow-hidden border-t border-white/10 bg-black py-24 text-center">
-    <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[110px]" />
-    <div className="relative mx-auto max-w-3xl px-4">
-      <h2 className="mb-5 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-        Ready for mobile IDs at the door?
-      </h2>
-      <p className="mx-auto mb-8 max-w-xl text-lg leading-relaxed text-gray-400">
-        Give staff a clear way to handle supported digital IDs without buying another scanner.
-      </p>
-      <div className="flex flex-col justify-center gap-3 sm:flex-row">
-        <PrimaryCta href={downloadLinks.website_footer} eventName={analyticsEvents.appStoreCta}>
-          Download TapTrust
-        </PrimaryCta>
+  <section className="marketing-final">
+    <div className="marketing-container marketing-final__inner">
+      <div className="marketing-final__copy">
+        <h2>Try it during a real shift.</h2>
+        <p>Start with {FREE_CHECK_COUNT} live checks, then decide whether TapTrust belongs at your door.</p>
+        <div className="marketing-final__actions">
+          <Cta href={downloadLinks.website_footer} eventName={analyticsEvents.freeTrialCta}>
+            Try {FREE_CHECK_COUNT} free checks <ArrowUpRight aria-hidden="true" />
+          </Cta>
+          <Cta href="/faq" eventName={analyticsEvents.supportedCredentialsView} variant="text">
+            See supported IDs <ChevronRight aria-hidden="true" />
+          </Cta>
+        </div>
+        <strong>Clear decisions when the line is moving.</strong>
+      </div>
+
+      <div className="marketing-final__media">
+        <ProductScreen src={productScreens.complete} alt="TapTrust confirming a completed age check" />
       </div>
     </div>
   </section>
@@ -210,8 +211,9 @@ const FinalCta = () => (
 export const Home = () => (
   <>
     <Hero />
-    <ValueStrip />
-    <FreeTrial />
+    <ProofRail />
+    <Flow />
+    <DoorRhythm />
     <FinalCta />
   </>
 );
