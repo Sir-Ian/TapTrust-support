@@ -56,7 +56,7 @@ const Hero = () => (
       <div className="marketing-hero__copy">
         <h1>Verify a guest’s age with the iPhone you already have.</h1>
         <p>
-          TapTrust gives door staff a clear age result and photo-match workflow for supported mobile IDs. No scanner. No stored ID data.
+          TapTrust checks whether a guest meets the age threshold you set using supported IDs in Apple Wallet. No scanner. No stored ID data.
         </p>
         <div className="marketing-hero__actions">
           <Cta href={downloadLinks.website_hero} eventName={analyticsEvents.appStoreCta}>
@@ -103,9 +103,9 @@ const ProofRail = () => {
 
 const Flow = () => {
   const steps = [
-    'Guest presents a supported digital ID.',
-    'TapTrust returns a clear age result.',
-    'Staff make a quick visual match.',
+    'Set any whole-number age threshold from 18 to 65.',
+    'Guest presents a supported ID in Apple Wallet.',
+    'TapTrust shows whether your selected threshold was met.',
   ];
 
   return (
@@ -114,7 +114,7 @@ const Flow = () => {
         <div className="marketing-flow__copy">
           <h2>The answer your staff needs, in seconds.</h2>
           <p>
-            A guest presents a supported digital ID. TapTrust shows the age result, then gives staff a clear photo-match step.
+            Set your age threshold, then ask the guest to present a supported ID in Apple Wallet. TapTrust shows whether the guest meets that requirement.
           </p>
           <ol className="marketing-flow__steps">
             {steps.map((step, index) => (
@@ -152,7 +152,7 @@ const DoorRhythm = () => {
     {
       number: '02',
       title: 'Choose the right age threshold',
-      body: 'Support 18+, 21+, or 65+ workflows when your team needs them.',
+      body: 'Set any whole-number age threshold from 18 to 65 for your venue workflow.',
     },
     {
       number: '03',
@@ -167,7 +167,7 @@ const DoorRhythm = () => {
         <div className="marketing-rhythm__copy">
           <h2>Built for the rhythm at the door.</h2>
           <p>
-            TapTrust turns a newer credential type into the familiar decision your team has to make: is this guest eligible, and does the person match?
+            TapTrust answers the age-check question your team needs: does this guest meet the age threshold you set?
           </p>
         </div>
         <div className="marketing-rhythm__points">

@@ -20,7 +20,7 @@ const flow = [
   {
     icon: SlidersHorizontal,
     title: 'Choose a threshold',
-    body: 'Switch to the right age threshold when needed, such as 18+ or 21+.',
+    body: 'Set any whole-number age threshold from 18 to 65.',
   },
   {
     icon: BadgeCheck,
@@ -30,12 +30,12 @@ const flow = [
   {
     icon: ShieldCheck,
     title: 'Review the result',
-    body: 'TapTrust shows the age result and credential photo or info supported by the verification flow.',
+    body: 'TapTrust shows whether the guest meets your selected age threshold.',
   },
   {
     icon: UserCheck,
-    title: 'Confirm Match / Doesn\'t Match',
-    body: 'Staff compare the credential photo with the guest before completing the check.',
+    title: 'Use Show Each Result',
+    body: 'Show Each Result pauses after each check so staff can review the outcome.',
   },
   {
     icon: Gauge,
@@ -47,7 +47,7 @@ const flow = [
 const notes = [
   {
     title: 'Built for clear staff decisions',
-    body: 'The workflow translates a newer credential type into the familiar door question: is this guest eligible, and does the person match?',
+    body: 'The workflow answers whether the guest meets your selected age threshold. Staff remain responsible for venue policies and admission decisions.',
   },
   {
     title: 'Useful while adoption grows',
@@ -125,10 +125,10 @@ export const HowItWorks = () => {
               </div>
               <div className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-5 py-4 text-sm text-blue-100">
                 <span className="mb-1 block font-bold text-white">Age result ready</span>
-                Review the status and supported credential details.
+                Review whether your selected age threshold was met.
               </div>
               <div className="rounded-lg bg-[#111] px-5 py-4 text-sm text-gray-300">
-                Staff selects Match or Doesn&apos;t Match
+                Show Each Result pauses for staff to review the outcome
               </div>
               <div className="flex items-center justify-center gap-2 rounded-lg border border-green-500/30 bg-green-500/10 px-5 py-4 text-sm font-bold text-green-300">
                 <Repeat className="h-4 w-4" />

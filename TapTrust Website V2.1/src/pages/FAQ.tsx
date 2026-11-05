@@ -45,19 +45,19 @@ const faqGroups = [
     items: [
       {
         q: 'What if my staff has never seen a mobile ID?',
-        a: 'TapTrust uses clear result screens and a Match / Doesn\'t Match confirmation so staff can follow a consistent workflow.',
+        a: 'TapTrust shows whether the selected age threshold was met. Show Each Result pauses after each check so staff can review the outcome.',
       },
       {
         q: 'What is Fast Mode?',
         a: 'Fast Mode helps staff keep checks moving during busy periods by streamlining the reset for the next guest.',
       },
       {
-        q: 'What does Match / Doesn\'t Match mean?',
-        a: 'Staff compare the credential photo with the guest and mark whether the person matches before completing the check.',
+        q: 'What does the age-check result mean?',
+        a: 'TapTrust shows whether the guest meets the age threshold you set. It requests only that age result, not a credential photo or other personal identity details.',
       },
       {
         q: 'Can I switch age thresholds?',
-        a: 'Yes. TapTrust supports switching age thresholds for workflows such as 18+, 21+, or 65+ when supported by the app.',
+        a: 'Yes. You can set any whole-number age threshold from 18 to 65.',
       },
     ],
   },

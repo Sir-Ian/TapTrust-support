@@ -20,13 +20,13 @@ const features = [
   },
   {
     icon: UserCheck,
-    title: 'Match / Doesn\'t Match',
-    body: 'Staff compare the credential photo with the guest and mark whether the person matches before completing the check.',
+    title: 'Age-threshold result',
+    body: 'TapTrust shows whether the guest meets the age threshold you set. It requests only that age result, not a credential photo or other personal identity details.',
   },
   {
     icon: SlidersHorizontal,
     title: 'Age threshold switching',
-    body: 'Switch thresholds for different workflows, such as 18+ or 21+, when supported by the app.',
+    body: 'Set any whole-number age threshold from 18 to 65 for your workflow.',
   },
   {
     icon: BadgeCheck,
@@ -46,7 +46,7 @@ const features = [
   {
     icon: Lock,
     title: 'Privacy-first checks',
-    body: 'TapTrust focuses on the age-check result and presented credential instead of storing unnecessary personal data.',
+    body: 'TapTrust requests only whether the guest meets your selected age threshold, without requesting or storing personal identity details.',
   },
   {
     icon: Repeat,

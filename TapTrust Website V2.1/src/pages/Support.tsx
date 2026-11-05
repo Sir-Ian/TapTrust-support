@@ -12,8 +12,8 @@ import {
 const setupChecklist = [
   'Download TapTrust on the iPhone your staff will use.',
   `Start with the ${FREE_CHECK_COUNT} free checks when supported credentials appear.`,
-  'Choose the age threshold your workflow needs, such as 18+ or 21+.',
-  'Have staff compare the credential photo with the guest and select Match / Doesn\'t Match.',
+  'Set the age threshold your workflow needs: any whole number from 18 to 65.',
+  'Use Show Each Result to pause after each check and review whether the selected threshold was met.',
   'Use Fast Mode during busy periods to reset for the next check.',
 ];
 

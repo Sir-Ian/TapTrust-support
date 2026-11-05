@@ -11,7 +11,7 @@ export const Privacy = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">Overview</h2>
             <p className="leading-relaxed">
-              TapTrust is designed with privacy first. Our app supports staff visual confirmation of age eligibility using supported mobile ID verification flows, Apple Passport Verified IDs, and Apple Wallet Mobile IDs where available. We do not collect, store, or share personal information.
+              TapTrust is designed with privacy first. Our app checks whether a guest meets the age threshold set by the operator using supported IDs in Apple Wallet where available. We do not collect, store, or share personal information.
             </p>
           </section>
 
@@ -27,7 +27,7 @@ export const Privacy = () => {
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">How the ID check works</h2>
             <p className="leading-relaxed">
-              When a customer presents a supported digital credential, TapTrust is designed to show only the information needed for the age-check workflow. The operator visually confirms age eligibility and whether the guest matches the credential photo or information supported by the verification flow.
+              When a customer presents a supported ID in Apple Wallet, TapTrust requests only whether the customer meets the age threshold set by the operator. The operator can choose any whole-number threshold from 18 to 65. TapTrust shows whether that threshold was met; it does not request a credential photo, name, date of birth, document number, or address.
             </p>
           </section>
 
